@@ -148,3 +148,11 @@ const drinks = ['sprite', 'pepsi', 'root beer']
 
 const [myDrink, myOtherDrink, isCoke] = drinks;
 
+
+//The below are the exact same thing.
+// const addition = function() {
+
+// }
+
+// const addition = () => {
+//}
