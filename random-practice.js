@@ -23,12 +23,25 @@ console.log(getInitials('Drew Hemsley'));
 // example:  
 
 function find(array, string) {
-    for(item of array) {
-        if (item === string) 
-        return true
-    }
-        return false;
+return array.includes(string);
 }
+
+//Another way to do this:
+
+// function find(arr, string) {
+//     const foundItem = arr.find(function(item) {
+//       return item === string;
+//     })
+//     return !!foundItem;
+//   }
+
+// function find(array, string) {
+//     for(item of array) {
+//         if (item === string) 
+//         return true
+//     }
+//         return false;
+// }
 
 //Another way to do it:
 
@@ -56,3 +69,82 @@ const fastfood = ['tacobell', 'mcdonalds', 'panda express', 'arbys', 'shitface j
 const i = fastfood.indexOf('shitface jenkins');
 
 console.log(i);
+
+//Let's talk about prototype methods.
+
+//First up - the map function! This will modify elements in the array and then map the new elements to a new array!
+
+const hipHopArtists = ['dr dre', 'eminem', 'wu tang', 'snoop', 'notorious big', 'diddy'];
+const rockBands = ['seether', 'nickelback', 'creed', 'switchfoot', 'chevelle', 'eminem', 'snoop'];
+
+const filteredRockBands = rockBands.filter(function(item) {
+  if (hipHopArtists.includes(item)) return false;
+  return true
+})
+
+console.log(filteredRockBands);
+
+//Let's talk about looping through objects.
+
+const playStation = {
+    color: 'black',
+    brand: 'sony',
+    memory: '1tb',
+    versions: 1,
+    games: ['final fantasy', 'fortnice', 'mortal kombat']
+}
+
+console.log(playStation.memory);
+
+const newPS5 = {};
+
+for(prop in playStation) {
+    newPS5[prop] = 'GOAT';
+}
+console.log(playStation);
+console.log(newPS5);
+
+for(prop in playStation) {
+    if (typeof playStation[prop] === 'string') {
+        playStation[prop] = null;
+    }
+}
+
+console.log(playStation);
+
+//Have Brad or Missy or someone explain the below to you.
+
+Object.keys(playStation).forEach(function(key) {
+    console.log(key); 
+})
+
+//What's the way to remove something from an object? Delete.
+
+//delete playStation.brand, etc.
+
+// how to make a shallow copy of an object; 
+const newObj = Object.assign({}, playStation);
+const newObj2 = {...playStation};
+
+// how to make a shallow copy of an array
+const arr = [1, 2, 3];
+const newArr = [...arr];
+
+//Destructuring!
+
+// dot notation
+console.log( playStation.brand )
+
+// bracket notation
+console.log( playStation['brand'] )
+
+// destructure
+const { brand } = playStation;
+console.log(brand)
+
+//More array stuff
+
+const drinks = ['sprite', 'pepsi', 'root beer']
+
+const [myDrink, myOtherDrink, isCoke] = drinks;
+
