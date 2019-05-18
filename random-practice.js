@@ -91,7 +91,7 @@ const playStation = {
     brand: 'sony',
     memory: '1tb',
     versions: 1,
-    games: ['final fantasy', 'fortnice', 'mortal kombat']
+    games: ['final fantasy', 'fortnite', 'mortal kombat']
 }
 
 console.log(playStation.memory);
