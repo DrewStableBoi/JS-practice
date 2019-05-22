@@ -156,3 +156,149 @@ const [myDrink, myOtherDrink, isCoke] = drinks;
 
 // const addition = () => {
 //}
+
+// function definitions
+
+function x(input) {
+    console.log(input)
+  }
+  
+  // function expressions
+  
+  const y = function (input) {
+    console.log(input)
+  }
+  
+  // arrow functions
+  
+  const z = (input) => {
+    console.log(input)
+  }
+  
+  x('hey');
+  y('hi');
+  z('hello');
+
+  // default (global)
+
+function x() {
+    console.log(this)
+  }
+  
+  // implicit
+  
+  const obj = {
+    name: 'jon',
+    doSuff: function() {
+      console.log(this)
+    }
+  }
+  
+  // explicit
+  
+  function y() {
+    console.log(this)
+  }
+  
+  y.call({couldBe: 'anything'});
+
+  function car(make, model) {
+    // this = {};
+    this.yay = make;
+    this.yo = model;
+    // return this;
+  }
+  
+  const bmw = new car('bmw', 'm5');
+  const mercedes = new car('mercedes', 'cls63');
+  
+  console.log(bmw, mercedes)
+
+  const person = {
+    name: 'jon',
+    doSuff: function() {
+      console.log(this.name)
+    }
+  }
+  
+  // person.doSuff()
+  
+  
+  const otherPerson = {
+    name: {
+      first: 'Jon',
+      last: 'Myrick',
+      doOtherStuff: function() {
+        console.log(this)
+      }
+    },
+  }
+  
+  otherPerson.name.doOtherStuff();
+
+  function x() {
+    console.log('context is', this)
+  }
+  
+  // invokes x with new context
+  x.call({ key: 'what ever i want'});
+  
+  // returns a new function with new context
+  const boundX = x.bind({ otherKey: 'new context value' });
+  
+  boundX();
+
+//
+
+  function car(make, model) {
+    this.make = make;
+    this.model = model;
+  }
+  
+  const myCar = new car('ford', 'f150');
+  
+  console.log(myCar)
+
+  // the above is the same as the below 
+  
+  class Car {
+    constructor(make, model) {
+      this.make = make;
+      this.model = model;
+    }
+  }
+  
+  const myOtherCar = new Car('toyota', 'camry');
+  
+  console.log(myOtherCar)
+
+  const person = {
+    name: 'jon',
+    method1: function() {
+      console.log(this)
+    },
+    method3() {
+      console.log(this)
+    },
+    method2: () => {
+      console.log(this)
+    },
+  }
+  
+  person.method1()
+  person.method2()
+  person.method3()
+  
+  const person = {
+    name: 'jon',
+    method1: function() {
+      console.log('method1', this)
+      const newFunc = () => {
+        console.log('the arrow function', this)
+      }
+  
+      newFunc()
+    },
+  }
+  
+  person.method1()
